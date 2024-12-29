@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Submission</title>
+    <style>
+        /* Original styles preserved */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url('https://github.com/raghavarao17/Government-of-India-Project/blob/master/1.jpg?raw=true') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5); /* Transparency added */
+            z-index: -1;
+        }
+
+        .main {
+            width: 100%;
+            max-width: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .main h3 {
+            padding: 20px;
+            text-align: center;
+            background-color: #0073e6; /* Blue */
+            color: white;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .main h4 {
+            text-align: center;
+            color: #0073e6; /* Blue */
+            margin: 10px 0 20px;
+        }
+
+        .main form {
+            padding: 20px;
+        }
+
+        .form-outer {
+            margin-bottom: 20px;
+        }
+
+        .form-outer label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-outer input,
+        .form-outer select,
+        .form-outer textarea {
+            width: 100%;
+            border: 2px solid #0073e6; /* Blue */
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-outer input:focus,
+        .form-outer select:focus,
+        .form-outer textarea:focus {
+            border-color: #005cbf; /* Darker blue */
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 91, 191, 0.5);
+        }
+
+        button {
+            width: 100%;
+            height: 45px;
+            background-color: #0073e6; /* Blue */
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #005cbf; /* Darker blue */
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(1);
+        }
+
+        .main-website {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .main-website a {
+            color: #0073e6;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .main-website a:hover {
+            color: #005cbf;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h3>Complaint Submission</h3>
+        <h4>We value your feedback</h4>
+        <form id="complaintForm">
+            <div class="form-outer">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="Name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-outer">
+                <label for="state">State:</label>
+                <select id="state" name="State" required>
+                    <option value="">Select State</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
+            </div>
+            <div class="form-outer">
+                <label for="district">District:</label>
+                <select id="district" name="District" required>
+                    <option value="">Select District</option>
+                    <option value="Pune">Pune</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Delhi">Delhi</option>
+                </select>
+            </div>
+            <div class="form-outer">
+                <label for="category">Category:</label>
+                <select id="category" name="Category" required>
+                    <option value="">Select Category</option>
+                    <option value="Potholes">Potholes</option>
+                    <option value="Street Lights">Street Lights</option>
+                    <option value="Water Problem">Water Problem</option>
+                    <option value="Garbage">Garbage</option>
+                    <option value="Drainage Problem">Drainage Problem</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+            <div class="form-outer">
+                <label for="problem">Problem:</label>
+                <textarea id="problem" name="Problem" rows="4" placeholder="Describe your problem" required></textarea>
+            </div>
+            <div class="form-outer">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="Location" placeholder="Enter the location" required>
+            </div>
+            <div class="form-outer">
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" name="Image" accept="image/*" required>
+            </div>
+            <div>
+                <button type="submit">Submit Complaint</button>
+            </div>
+        </form>
+        <div class="main-website">
+            <a href="https://example.com" target="_blank">Main Website</a>
+        </div>
+    </div>
+
+    <script>
+        const url = 'https://script.google.com/macros/s/AKfycbxkWpTKWVSpAeqnWCRDDcE6iHIWtWWbQ7HFLRH7UDGIz8bYSG85wE_YB8VgrWS6wC03PQ/exec';
+
+        document.getElementById('complaintForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+
+            fetch(url, {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.text())
+            .then(result => {
+                console.log(result);
+                alert('Complaint submitted successfully!');
+                this.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Complaints</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+        }
+        .complaint {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .complaint:last-child {
+            border-bottom: none;
+        }
+        .description {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .votes {
+            display: flex;
+            align-items: center;
+        }
+        .vote-count {
+            margin-right: 10px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .unvote-button {
+            background-color: #FF5733;
+        }
+        .unvote-button:hover {
+            background-color: #C70039;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Trending Complaints</h1>
+        <div id="complaints"></div>
+    </div>
+
+    <script>
+        const complaints = [
+            { id: 1, description: "Potholes on Main Street causing accidents", votes: 15 },
+            { id: 2, description: "Streetlights not working in Park Avenue", votes: 25 },
+            { id: 3, description: "Water shortage in Elmwood neighborhood", votes: 30 },
+            { id: 4, description: "Overflowing garbage bins in Downtown", votes: 20 },
+            { id: 5, description: "Broken public benches in Central Park", votes: 10 },
+            { id: 6, description: "Noisy construction at night in Oakwood", votes: 18 },
+            { id: 7, description: "Illegal parking on Maple Street", votes: 22 },
+            { id: 8, description: "Foul smell from the factory in Westside", votes: 12 },
+            { id: 9, description: "Unrepaired potholes on Highway 77", votes: 28 },
+            { id: 10, description: "Flooded underpass during rains in East City", votes: 26 },
+            { id: 11, description: "Overgrown bushes blocking sidewalks", votes: 9 },
+            { id: 12, description: "Street vendors blocking pedestrian walkways", votes: 14 },
+            { id: 13, description: "No signal coverage in Green Valley", votes: 8 },
+            { id: 14, description: "Frequent power outages in Northside", votes: 19 }
+        ];
+
+        function renderComplaints() {
+            const complaintsContainer = document.getElementById("complaints");
+            complaintsContainer.innerHTML = "";
+            
+            complaints.sort((a, b) => b.votes - a.votes);
+
+            complaints.forEach(complaint => {
+                const complaintDiv = document.createElement("div");
+                complaintDiv.className = "complaint";
+
+                complaintDiv.innerHTML = `
+                    <div class="description">${complaint.description}</div>
+                    <div class="votes">
+                        <span class="vote-count">${complaint.votes} votes</span>
+                        <button onclick="upvote(${complaint.id})">Upvote</button>
+                        <button class="unvote-button" onclick="unvote(${complaint.id})">Unvote</button>
+                    </div>
+                `;
+
+                complaintsContainer.appendChild(complaintDiv);
+            });
+        }
+
+        function upvote(id) {
+            const complaint = complaints.find(c => c.id === id);
+            if (complaint) {
+                complaint.votes++;
+                renderComplaints();
+            }
+        }
+
+        function unvote(id) {
+            const complaint = complaints.find(c => c.id === id);
+            if (complaint && complaint.votes > 0) {
+                complaint.votes--;
+                renderComplaints();
+            }
+        }
+
+        renderComplaints();
+    </script>
+</body>
+</html>

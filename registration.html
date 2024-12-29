@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <style>
+        /* Basic styling similar to previous form */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url('https://static.toiimg.com/thumb/msid-103384206,imgsize-45928,width-400,resizemode-4/103384206.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 119, 255, 0.6);
+            z-index: -1;
+        }
+
+        .main {
+            width: 100%;
+            max-width: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .main h3 {
+            padding: 20px;
+            text-align: center;
+            background-color: #0073e6;
+            color: white;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .main form {
+            padding: 20px;
+        }
+
+        .form-outer {
+            margin-bottom: 20px;
+        }
+
+        .form-outer label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-outer input {
+            width: 100%;
+            height: 40px;
+            border: 2px solid #0073e6;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-outer input:focus {
+            border-color: #005cbf;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 91, 191, 0.5);
+        }
+
+        button {
+            width: 100%;
+            height: 45px;
+            background-color: #0073e6;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #005cbf;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(1);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .login-link a {
+            color: #0073e6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .main {
+                margin: 0 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h3>REGISTER</h3>
+        <form id="register-form">
+            <div class="form-outer">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-outer">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-outer">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
+            </div>
+            <div class="form-outer">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your password" required>
+            </div>
+            <div>
+                <button type="submit">Register</button>
+            </div>
+        </form>
+
+        <div class="login-link">
+            <p>Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Registration form submission
+        document.getElementById("register-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            let username = document.getElementById("username").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirm-password").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            // Store the data in localStorage
+            localStorage.setItem("username", username);
+            localStorage.setItem("email", email);
+            localStorage.setItem("password", password);
+
+            alert("Registration successful! You can now log in.");
+            window.location.href = "login form.html"; // Redirect to login page
+        });
+    </script>
+</body>
+</html>

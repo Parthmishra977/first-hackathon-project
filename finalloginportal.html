@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Locality</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f4f4f9, #f4f4f9, #f4f4f9);
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .top-strip {
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px 0;
+        }
+
+        .top-strip button {
+            background-color: #ffffff;
+            color: #4c5baf;
+            border: 2px solid #4c56af;
+            padding: 10px 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .top-strip button:hover {
+            background-color: #4caf50;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: #03a9f4;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        nav button {
+            background-color: #ffffff;
+            color: #03a9f4;
+            border: 2px solid #03a9f4;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: bold;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        nav button:hover {
+            background-color: #03a9f4;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #2193b0, #6dd5ed);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .hero-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .hero-section li {
+            margin: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #4caf50;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            background-color: #222;
+            color: white;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            background-size: cover;
+            border-radius: 50%;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+
+        .social-icons .youtube {
+            background-image: url('https://img.icons8.com/ios-filled/50/ffffff/youtube-play.png');
+            background-color: #FF0000;
+        }
+
+        .social-icons .instagram {
+            background-image: url('https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png');
+            background-color: #C13584;
+        }
+
+        .social-icons .twitter {
+            background-image: url('https://img.icons8.com/ios-filled/50/ffffff/twitter.png');
+            background-color: #1DA1F2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 20px;">
+            <img src="logo.png" alt="Logo" style="width: 50px; height: 50px; border-radius: 50%;">
+            <h1 id="title">Smart Locality</h1>
+        </div>
+    </header>
+
+    <div class="top-strip">
+        <button id="btn-about" onclick="viewAbout()">About</button>
+        <button id="btn-faq" onclick="viewFAQ()">FAQ</button>
+        <button id="btn-contact" onclick="viewContactUs()">Contact Us</button>
+        <button onclick="toggleLanguageSelect()">Select Language</button>
+    </div>
+
+    <nav>
+        <button id="btn-complaints" onclick="viewComplaints()">Complain</button>
+        <button id="btn-trending" onclick="viewTrendingComplaints()">Trending Complaints</button>
+        <button id="btn-solved" onclick="viewSolvedComplaints()">Solved Complaints</button>
+        <button id="btn-feedback" onclick="giveFeedback()">Feedback</button>
+    </nav>
+
+    <main>
+        <section class="hero-section">
+            <h1 id="hero-title">Empowering Communities Through Digital Action</h1>
+            <p id="hero-description">Welcome to the Smart Locality platform, your gateway to better neighborhoods. Here, you can:</p>
+            <ul id="hero-list">
+                <li><strong>Report Issues:</strong> Highlight concerns in your area effortlessly.</li>
+                <li><strong>Engage Officials:</strong> Communicate directly with civic authorities.</li>
+                <li><strong>Collaborate:</strong> Participate in resolving issues for a thriving community.</li>
+            </ul>
+            <p id="hero-conclusion">Join us in making your locality smarter and more connected.</p>
+            <a href="chat.html" class="cta-button">Get into chat</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Smart Locality. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://youtube.com" target="_blank" class="youtube"></a>
+            <a href="https://instagram.com" target="_blank" class="instagram"></a>
+            <a href="https://twitter.com" target="_blank" class="twitter"></a>
+        </div>
+    </footer>
+
+    <script>
+        // Functions to handle navigation
+        function viewComplaints() {
+            window.location.href = 'newccomlain.html';
+        }
+
+        function viewTrendingComplaints() {
+            window.location.href = 'trending.html';
+        }
+
+        function viewSolvedComplaints() {
+            window.location.href = 'solvedcomplains.html';
+        }
+
+        function giveFeedback() {
+            window.location.href = 'newnewfeedback.html';
+        }
+
+        function viewAbout() {
+            window.location.href = 'about.html';
+        }
+
+        function viewFAQ() {
+            window.location.href = 'faq.html';
+        }
+
+        function viewContactUs() {
+            window.location.href = 'contactus.html';
+        }
+    </script>
+</body>
+</html>

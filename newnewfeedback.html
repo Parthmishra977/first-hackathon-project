@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/LotusDelhi.jpg/640px-LotusDelhi.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7); /* Lighter overlay for readability */
+            z-index: -1;
+        }
+
+        .main {
+            width: 100%;
+            max-width: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .main h3 {
+            padding: 20px;
+            text-align: center;
+            background-color: #0073e6;
+            color: white;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .main form {
+            padding: 20px;
+        }
+
+        .form-outer {
+            margin-bottom: 20px;
+        }
+
+        .form-outer label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-outer input,
+        .form-outer select {
+            width: 100%;
+            border: 2px solid #0073e6;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-outer input:focus,
+        .form-outer select:focus {
+            border-color: #005cbf;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 91, 191, 0.5);
+        }
+
+        button {
+            width: 100%;
+            height: 45px;
+            background-color: #0073e6;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #005cbf;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h3>Feedback Form</h3>
+        <form id="feedbackForm">
+            <div class="form-outer">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="Name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-outer">
+                <label for="rating">Rating:</label>
+                <select id="rating" name="Rating" required>
+                    <option value="">Select Rating</option>
+                    <option value="1">1 - Poor</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="3">3 - Good</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="5">5 - Excellent</option>
+                </select>
+            </div>
+            <div class="form-outer">
+                <label>Did you find what you were looking for?</label>
+                <select id="lookingFor" name="Looking_For" required>
+                    <option value="">Select Yes or No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+    <script>
+        const url = 'https://script.google.com/macros/s/AKfycby9cM5KrrofLKy9ZwzMZu2jAOmz8B7DCKEbot97-qMlt8dRpGmi5gFLh4yAga4bUvSCQQ/exec';
+
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+
+            fetch(url, {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.text())
+            .then(result => {
+                console.log(result);
+                alert('Feedback submitted successfully!');
+                this.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>

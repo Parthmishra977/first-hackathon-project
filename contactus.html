@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url('https://s7ap1.scene7.com/is/image/incredibleindia/india-gate-delhi-4-attr-hero?qlt=82&ts=1727351885876') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7); /* Lighter overlay for readability */
+            z-index: -1;
+        }
+
+        .main {
+            width: 100%;
+            max-width: 500px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: fadeIn 1s ease-in-out;
+            padding: 20px;
+        }
+
+        .main h3 {
+            padding: 20px;
+            text-align: center;
+            background-color: #0073e6;
+            color: white;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .info-group, .emergency {
+            margin-bottom: 20px;
+        }
+
+        .info-group label, .emergency h4 {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        .info {
+            font-size: 1rem;
+            color: #555;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border: 2px solid #0073e6;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .info:hover {
+            background-color: #005cbf;
+            color: white;
+            cursor: pointer;
+        }
+
+        .emergency {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .emergency p {
+            font-size: 1rem;
+            margin: 10px 0;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: #0073e6;
+        }
+
+        footer a:hover {
+            color: #e74c3c;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h3>Contact Us</h3>
+        <!-- Contact Information -->
+        <div class="info-group">
+            <label for="email">Email Address:</label>
+            <div class="info" id="email">example@email.com</div>
+        </div>
+        <div class="info-group">
+            <label for="mobile">Mobile Number:</label>
+            <div class="info" id="mobile">+123 456 7890</div>
+        </div>
+
+        <!-- Emergency Helplines -->
+        <div class="emergency">
+            <h4>Emergency Helplines</h4>
+            <p><strong>Fire Department:</strong> 101</p>
+            <p><strong>Police Department:</strong> 102</p>
+            <p><strong>Ambulance:</strong> 103</p>
+            <p><strong>Poison Control:</strong> 1800-XXX-XXXX</p>
+            <p><strong>Disaster Management:</strong> 108</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Company Name. All rights reserved. <br> 
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>

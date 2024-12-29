@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        main {
+            padding: 2rem;
+        }
+        .faq-section {
+            margin-bottom: 2rem;
+        }
+        .faq-question {
+            cursor: pointer;
+            margin: 0;
+            padding: 1rem;
+            background-color: #e9e9e9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .faq-answer {
+            margin: 0;
+            padding: 1rem;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-top: none;
+            display: none;
+            border-radius: 0 0 5px 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Frequently Asked Questions</h1>
+    </header>
+    <main>
+        <div class="faq-section">
+            <h2 class="faq-question">What is this website about?</h2>
+            <p class="faq-answer">This website provides answers to commonly asked questions about our services and policies.</p>
+        </div>
+        <div class="faq-section">
+            <h2 class="faq-question">How can I contact support?</h2>
+            <p class="faq-answer">You can contact our support team via the Contact Us page or email us at support@example.com.</p>
+        </div>
+        <div class="faq-section">
+            <h2 class="faq-question">What services do you offer?</h2>
+            <p class="faq-answer">We offer a variety of services, including web development, digital marketing, and graphic design. Visit our Services page for more details.</p>
+        </div>
+    </main>
+    <script>
+        const questions = document.querySelectorAll('.faq-question');
+
+        questions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                } else {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
